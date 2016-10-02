@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './index.scss';
 import React from 'react';
-import CommentBox from './components/commentBox.jsx';
+import TodoBox from './components/todo/todoBox.jsx';
 
 export default class App extends React.Component {
   render() {
@@ -9,7 +9,7 @@ export default class App extends React.Component {
       <div>
         <h1 className={styles.blueBg}>It Works!</h1>
         <p><a className="btn btn-primary btn-lg">Enjoy!</a></p>
-        <CommentBox url='http://swapi.co/api/films/'/>
+        <TodoBox url='http://swapi.co/api/films/'/>
       </div>
     )
   }

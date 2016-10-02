@@ -1,19 +1,19 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import Axios from 'axios';
-import CommentForm from './commentForm';
-import CommentList from './commentList';
+import TodoForm from './todoForm';
+import TodoList from './todoList';
 
-class CommentBox extends React.Component {
+class TodoBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       data: []
     };
-    this.loadCommentsFromServer = this.loadCommentsFromServer.bind(this);
-    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+    this.loadTodoFromServer = this.loadTodoFromServer.bind(this);
+    this.handleTodoSubmit = this.handleTodoSubmit.bind(this);
   }
-  loadCommentsFromServer(){
+  loadTodoFromServer(){
     let self = this;
     Axios.get(this.props.url)
     .then(function (response) {
@@ -23,12 +23,12 @@ class CommentBox extends React.Component {
       console.log(error);
     });
   }
-  handleCommentSubmit(comment) {
-    console.info('new comment', comment);
+  handleTodoSubmit(todo) {
+    console.info('new todo', todo);
     let newData = this.state.data;
     newData.push({
-      title:comment.title,
-      producer:comment.producer,
+      title:todo.title,
+      descripiton:todo.descripiton,
       created:new Date()
     });
     this.setState({data:newData});
@@ -37,17 +37,17 @@ class CommentBox extends React.Component {
     // this.loadCommentsFromServer();
   }
   render() {
-    let commentList = this.state.data.length > 0 ?
-        <CommentList data={this.state.data}/>
+    let todoList = this.state.data.length > 0 ?
+        <TodoList data={this.state.data}/>
         : <h2>Ops vazio</h2>;
     return (
-      <div className="commentBox">
-        <CommentForm onCommentSubmit={this.handleCommentSubmit} />
+      <div className="todoBox">
+        <TodoForm onTodoSubmit={this.handleTodoSubmit} />
         <hr/>
-        {commentList}
+        {todoList}
       </div>
     )
   }
 }
 
-export default CommentBox;
+export default TodoBox;

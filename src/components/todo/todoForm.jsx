@@ -1,39 +1,35 @@
 import React from 'react';
-export default class CommentForm extends React.Component {
+export default class TodoForm extends React.Component {
   constructor(props) {
    super(props);
    this.state = {
      title:'',
-     producer:''
+     descripiton:''
    }
-   this.handleClick = this.handleClick.bind(this);
    this.handleTitleChange = this.handleTitleChange.bind(this);
-   this.handleProducerChange = this.handleProducerChange.bind(this);
+   this.handleDescripitonChange = this.handleDescripitonChange.bind(this);
    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleTitleChange(e) {
    this.setState({title: e.target.value});
   }
-  handleProducerChange(e) {
-   this.setState({producer: e.target.value});
+  handleDescripitonChange(e) {
+   this.setState({descripiton: e.target.value});
   }
   handleSubmit(e) {
     e.preventDefault();
     var title = this.state.title.trim();
-    var producer = this.state.producer.trim();
-    if (!producer || !title) {
+    var descripiton = this.state.descripiton.trim();
+    if (!descripiton || !title) {
       return;
     }
-    this.props.onCommentSubmit({title: title, producer: producer});
-    this.setState({title: '', producer: ''});
-  }
-  handleClick() {
-   console.log(this); // React Component instance
+    this.props.onTodoSubmit({title: title, descripiton: descripiton});
+    this.setState({title: '', descripiton: ''});
   }
   render() {
     return (
-      <form className="commentForm" onSubmit={this.handleSubmit}>
-        {this.state.title} | {this.state.producer}
+      <form className="todoForm" onSubmit={this.handleSubmit}>
+        {this.state.title} | {this.state.descripiton}
         <br/>
         <input type="text"
           placeholder="title"
@@ -42,8 +38,8 @@ export default class CommentForm extends React.Component {
         />
         <input type="text"
           placeholder="producer"
-          onChange={this.handleProducerChange}
-          value={this.state.producer}
+          onChange={this.handleDescripitonChange}
+          value={this.state.descripiton}
         />
         <input type="submit" value="Post" />
       </form>

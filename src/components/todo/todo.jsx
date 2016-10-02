@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default class Comment extends React.Component {
+export default class Todo extends React.Component {
   render() {
     return(
-      <div className="comment">
-        <h2 className="commentAuthor">
+      <div className="todo">
+        <h2 className="todoTitle">
           {this.props.title}
         </h2>
         {this.props.children}
