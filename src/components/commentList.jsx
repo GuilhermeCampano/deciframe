@@ -6,7 +6,7 @@ export default class CommentList extends React.Component {
     let data = this.props.data;
     let commentNodes = data.map(function(comment) {
       return (
-        <Comment title={comment.title}>
+        <Comment title={comment.title} key={comment.created}>
           {comment.producer}
         </Comment>
       );
