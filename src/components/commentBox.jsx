@@ -10,10 +10,7 @@ class CommentBox extends React.Component {
     super(props);
     let self = this;
     this.state = {
-      data: [
-        {id: 1, producer: "Guilherme Campano", title: "This is one comment"},
-        {id: 2, producer: "Bruna Campano", title: "This is *another* comment"}
-      ]
+      data: []
     };
     Axios.get(props.url)
     .then(function (response) {
