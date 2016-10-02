@@ -37,12 +37,9 @@ class CommentBox extends React.Component {
     // this.loadCommentsFromServer();
   }
   render() {
-    let commentList;
-    if (this.state.data.length > 0) {
-      commentList = <CommentList data={this.state.data}/>
-    } else {
-      commentList = <h2>Ops vazio</h2>;
-    }
+    let commentList = this.state.data.length > 0 ?
+        <CommentList data={this.state.data}/>
+        : <h2>Ops vazio</h2>;
     return (
       <div className="commentBox">
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
