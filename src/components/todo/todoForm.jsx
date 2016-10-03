@@ -6,17 +6,14 @@ export default class TodoForm extends React.Component {
      title:'',
      descripiton:''
    }
-   this.handleTitleChange = this.handleTitleChange.bind(this);
-   this.handleDescripitonChange = this.handleDescripitonChange.bind(this);
-   this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleTitleChange(e) {
+  handleTitleChange = (e) => {
    this.setState({title: e.target.value});
   }
-  handleDescripitonChange(e) {
+  handleDescripitonChange = (e) => {
    this.setState({descripiton: e.target.value});
   }
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     var title = this.state.title.trim();
     var descripiton = this.state.descripiton.trim();

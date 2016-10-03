@@ -10,10 +10,8 @@ class TodoBox extends React.Component {
     this.state = {
       data: []
     };
-    this.loadTodoFromServer = this.loadTodoFromServer.bind(this);
-    this.handleTodoSubmit = this.handleTodoSubmit.bind(this);
   }
-  loadTodoFromServer(){
+  loadTodoFromServer = () => {
     let self = this;
     Axios.get(this.props.url)
     .then(function (response) {
@@ -23,7 +21,7 @@ class TodoBox extends React.Component {
       console.log(error);
     });
   }
-  handleTodoSubmit(todo) {
+  handleTodoSubmit = (todo) => {
     console.info('new todo', todo);
     let newData = this.state.data;
     newData.push({
@@ -33,18 +31,20 @@ class TodoBox extends React.Component {
     });
     this.setState({data:newData});
   }
-  componentDidMount() {
+  componentDidMount = () => {
     // this.loadCommentsFromServer();
   }
+  displayTodoList() {
+    return this.state.data.length > 0 ?
+     <TodoList data={this.state.data}/>
+     : <h2>Ops vazio</h2>;
+  }
   render() {
-    let todoList = this.state.data.length > 0 ?
-        <TodoList data={this.state.data}/>
-        : <h2>Ops vazio</h2>;
     return (
       <div className="todoBox">
         <TodoForm onTodoSubmit={this.handleTodoSubmit} />
         <hr/>
-        {todoList}
+          {this.displayTodoList()}
       </div>
     )
   }
