@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import Axios from 'axios';
 import TodoForm from './todoForm';
