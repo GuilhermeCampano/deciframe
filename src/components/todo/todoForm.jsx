@@ -25,20 +25,29 @@ export default class TodoForm extends React.Component {
   }
   render() {
     return (
-      <form className="todoForm" onSubmit={this.handleSubmit}>
-        {this.state.title} | {this.state.descripiton}
-        <br/>
-        <input type="text"
-          placeholder="title"
-          onChange={this.handleTitleChange}
-          value={this.state.title}
-        />
-        <input type="text"
-          placeholder="producer"
-          onChange={this.handleDescripitonChange}
-          value={this.state.descripiton}
-        />
-        <input type="submit" value="Post" />
+      <form className="col s12" onSubmit={this.handleSubmit}>
+        <div className="row">
+          <div className="input-field col s5">
+            <input type="text"
+              id="todo-title"
+              onChange={this.handleTitleChange}
+              value={this.state.title}
+            />
+          <label htmlFor="todo-title">Título</label>
+          </div>
+          <div className="input-field col s5">
+            <input type="text"
+              id="todo-descripiton"
+              onChange={this.handleDescripitonChange}
+              value={this.state.descripiton}
+            />
+          <label htmlFor="todo-descripiton">Descrição</label>
+          </div>
+          <div className="input-field col s2">
+            <input type="submit" className="waves-effect waves-light btn" value="Adicionar"/>
+          </div>
+        </div>
+
       </form>
     )
   }

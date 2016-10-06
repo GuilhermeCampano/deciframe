@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './index.scss';
 import React from 'react';
 // import TodoBox from './components/todo/todoBox.jsx';
@@ -10,7 +10,9 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <Pages/>
+      <div className="container">
+        <Pages/>
+      </div>
     )
   }
 }
