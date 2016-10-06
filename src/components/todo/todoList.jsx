@@ -3,11 +3,7 @@ import Todo from './todo';
 
 export default class TodoList extends React.Component {
   componentDidMount() {
-    $(document).ready(function(){
-      $('.collapsible').collapsible({
-        accordion : false
-      });
-    });
+    $('.collapsible').collapsible({ accordion : false });
   }
   render() {
     let data = this.props.data;

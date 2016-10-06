@@ -17,12 +17,10 @@
   "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
   "dependencies": {
     "axios": "^0.14.0",
-    "bootstrap": "^4.0.0-alpha.3",
     "materialize-css": "^0.97.7",
     "node-sass": "^3.9.2",
     "react": "15.3.0",
     "react-dom": "15.3.0",
-    "react-materialize": "^0.17.0",
     "sass-loader": "^4.0.1"
   },
   "devDependencies": {
