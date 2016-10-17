@@ -2,7 +2,11 @@ import React from 'react';
 import {Link} from 'react-router';
 export default class Menu extends React.Component {
   componentDidMount = () => {
-    $(".button-collapse").sideNav();
+    $('.button-collapse').sideNav({
+      menuWidth: 300,
+      edge: 'left', // Choose the horizontal origin
+      closeOnClick: true // Closes side-nav on <a>
+    });
   }
   render() {
     return (

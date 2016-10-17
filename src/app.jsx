@@ -8,10 +8,13 @@ import Stages from './components/stages/stages.jsx';
 import TodoBox from './components/todo/todoBox.jsx';
 import Menu from './components/menu/menu.jsx';
 
+const container = {
+  width: '100%'
+};
 class Main extends React.Component {
   render() {
     return (
-      <div className="container">
+      <div className="container" style={container}>
         <Menu/>
         <div className="content">
           {this.props.children}
